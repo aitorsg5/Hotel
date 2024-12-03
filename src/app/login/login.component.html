@@ -1,0 +1,38 @@
+<div id="iniciar_sesion" class="login-container" *ngIf="!isLoggedIn">
+    <form class="login-form" (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="nombre_usuario">Username:</label>
+        <input 
+          type="text" 
+          id="nombre_usuario" 
+          class="input-field" 
+          placeholder="Enter your username"
+          [(ngModel)]="username" 
+          name="username" 
+          required>
+      </div>
+      <div class="form-group">
+        <label for="password_usuario">Password:</label>
+        <input 
+          type="password" 
+          id="password_usuario" 
+          class="input-field" 
+          placeholder="Enter your password"
+          [(ngModel)]="password" 
+          name="password" 
+          required>
+      </div>
+      <div class="button-group">
+        <button type="submit" class="btn login-btn">Login</button>
+        <button type="button" class="btn register-btn">Register</button>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Mostrar contenido de bienvenida si está autenticado -->
+  <div class="welcome-container" *ngIf="isLoggedIn">
+    <h1>Welcome!</h1>
+    <p>{{ loginMessage }}</p>
+    <button class="btn logout-btn" (click)="logout()">Logout</button>
+  </div>
+  
